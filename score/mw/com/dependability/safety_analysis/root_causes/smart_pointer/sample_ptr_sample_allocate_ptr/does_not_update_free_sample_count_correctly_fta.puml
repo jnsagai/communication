@@ -1,5 +1,5 @@
 ' *******************************************************************************
-' Copyright (c) 2026 Contributors to the Eclipse Foundation
+' Copyright (c) {year} Contributors to the Eclipse Foundation
 '
 ' See the NOTICE file(s) distributed with this work for additional
 ' information regarding copyright ownership.
@@ -15,11 +15,8 @@
 
 !include fta_metamodel.puml
 
-$FailureMode("Returns wrong data", "Communication.ReturnsWrongData")
+$FailureMode("Does not update Free Sample Count correctly", "Communication.DoesNotUpdateFreeSampleCountCorrectly")
 
-$OrGate("Gate1", "Communication.ReturnsWrongData")
-$IntermediateEvent("Shared Memory no longer valid", "Event2", "Gate1")
-$RootCause("Life-Cycle issues", "LifeCycleIssuesSamplePtr", "Event2")
-$RootCause("Wrong slot referenced", "WrongSlotReferenced", "Gate1")
+$RootCause("Slot Reference count not decremented", "SlotReferenceCountNotDecremented", "Communication.DoesNotUpdateFreeSampleCountCorrectly")
 
 @enduml

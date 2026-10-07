@@ -15,13 +15,8 @@
 
 !include fta_metamodel.puml
 
-$FailureMode("Subscribe to Wrong Event or Field", "Communication.SubscribeToWrongEvent", "Communication.UnsubscribesFromWrongEvent")
+$FailureMode("Data only partially sent", "Communication.SendingAnEventOrFieldSendsDataOnlyPartially")
 
-$OrGate("Gate1", "Communication.SubscribeToWrongEvent")
-$IntermediateEvent("Generic Proxy\nMapping Error", "Event1", "Gate1")
-$RootCause("Event/Field name mapping clash", "EventFieldNameMappingClash", "Event1")
-$RootCause("Event/Field ID references wrong storage.", "EventFieldIdReferencesWrongStorage", "Gate1")
-$IntermediateEvent("Configuration error", "Event3", "Gate1")
-$TransferInGate("Transfer1", "Event3")
+$RootCause("Allocate claims too few memory", "AllocateClaimsTooFewMemory", "Communication.SendingAnEventOrFieldSendsDataOnlyPartially")
 
 @enduml
