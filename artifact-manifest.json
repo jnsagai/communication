@@ -706,8 +706,8 @@
     },
     {
       "path": "verify_packet.py",
-      "bytes": 1882,
-      "sha256": "f2903c370d31963c80dac6cb80d1c5456cec558f79da1f6875707d7f60c09afc"
+      "bytes": 1911,
+      "sha256": "d4505d4e91008c134c29bd2e2e5379f12ce5133e5feeb8f8694a9c36b96e8423"
     },
     {
       "path": "workspace.json",

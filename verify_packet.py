@@ -36,7 +36,7 @@ for item in manifest["files"]:
     if path.stat().st_size != item["bytes"] or digest.hexdigest() != item["sha256"]:
         failures.append(item["path"] + ": bytes or SHA-256 mismatch")
 actual = {str(path.relative_to(root)) for path in root.rglob("*")
-          if path.is_file() and "__pycache__" not in path.parts
+          if path.is_file() and "__pycache__" not in path.parts and ".git" not in path.parts
           and path.name != "artifact-manifest.json"}
 failures.extend(name + ": unlisted" for name in sorted(actual - listed))
 print(json.dumps({"verified_files": len(manifest["files"]), "failures": failures}, indent=2))
